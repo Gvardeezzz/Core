@@ -9,12 +9,16 @@ public class Main {
             System.out.println("Отсортированный массив: " + Arrays.toString(array));
         }
 
-        public  static int [] bubbleSort(int [] array){
+        public  static int [] bubbleSort(int [] array){ //Test added
+            assert array.length > 0;
+            int [] perfectArray = Arrays.copyOf(array, array.length);
+            Arrays.sort(perfectArray);
             for (int i = array.length-1; i >= 1 ; i--) {
                 for (int j = 0; j < i; j++) {
                     if(array[j] > array[j+1]) changeElements(j, j+1);
                 }
             }
+            assert Arrays.equals(perfectArray, array);
             return array;
         }
 
